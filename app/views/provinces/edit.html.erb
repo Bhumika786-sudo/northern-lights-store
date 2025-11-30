@@ -1,0 +1,24 @@
+<h1>Edit Tax Rates for <%= @province.name %></h1>
+
+<%= form_with model: @province, local: true do |f| %>
+  <p>
+    <%= f.label :gst_rate, "GST rate" %><br>
+    <%= f.number_field :gst_rate, step: 0.0001 %>
+  </p>
+
+  <p>
+    <%= f.label :pst_rate, "PST rate" %><br>
+    <%= f.number_field :pst_rate, step: 0.0001 %>
+  </p>
+
+  <p>
+    <%= f.label :hst_rate, "HST rate" %><br>
+    <%= f.number_field :hst_rate, step: 0.0001 %>
+  </p>
+
+  <p>
+    <%= f.submit "Save" %>
+  </p>
+<% end %>
+
+<p><%= link_to "Back", provinces_path %></p>

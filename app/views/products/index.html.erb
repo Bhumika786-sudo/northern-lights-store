@@ -1,0 +1,13 @@
+<div class="container my-5">
+
+  <h1 class="mb-4 fw-bold">Products</h1>
+
+  <%= link_to "New Product", new_product_path, class: "btn btn-success mb-4" %>
+
+  <div class="row g-4">
+    <% @products.each do |product| %>
+      <%= render partial: "product_card", locals: { product: product } %>
+    <% end %>
+  </div>
+
+</div>

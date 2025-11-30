@@ -1,0 +1,31 @@
+<h1>Manage Tax Rates</h1>
+
+<p><%= notice %></p>
+
+<table border="1" cellpadding="8" cellspacing="0">
+  <tr style="background-color:#f0f0f0;">
+    <th>Name</th>
+    <th>Code</th>
+    <th>GST Rate</th>
+    <th>PST Rate</th>
+    <th>HST Rate</th>
+    <th>Actions</th>
+  </tr>
+
+  <% @provinces.each do |province| %>
+    <tr>
+      <td><%= province.name %></td>
+      <td><%= province.code %></td>
+      <td><%= number_with_precision(province.gst_rate, precision: 4) %></td>
+      <td><%= number_with_precision(province.pst_rate, precision: 4) %></td>
+      <td><%= number_with_precision(province.hst_rate, precision: 4) %></td>
+      <td>
+        <%= link_to "Edit", edit_province_path(province), class: "btn btn-small" %>
+      </td>
+    </tr>
+  <% end %>
+</table>
+
+<br>
+
+<%= link_to "Back to Home", root_path %>

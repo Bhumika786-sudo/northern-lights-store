@@ -1,0 +1,7 @@
+<h1>Checkout</h1>
+
+<%= form_with url: orders_path, method: :post do %>
+  <p>Address: <%= current_user.address %></p>
+  <p>Province: <%= current_user.province.name %></p>
+  <%= submit_tag "Place Order" %>
+<% end %>

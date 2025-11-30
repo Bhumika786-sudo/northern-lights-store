@@ -1,0 +1,9 @@
+sku,name,description,price,stock_quantity,brand,category_name,on_sale
+GPS-001,Garmin eTrex 32x,GPS with color display and topo maps for hiking and trekking,299.99,15,Garmin,Navigation,false
+JKT-001,Arc'teryx Beta LT Jacket,Lightweight waterproof shell designed for harsh Manitoba weather,499.99,10,Arc'teryx,Jackets,false
+JKT-002,Patagonia Nano Puff Jacket,Warm insulated jacket ideal for cold-weather layering,279.99,20,Patagonia,Jackets,true
+TENT-001,MSR Hubba NX Solo Tent,Lightweight 3-season backpacking tent for solo adventurers,399.00,8,MSR,Tents,false
+BAG-001,The North Face Eco Trail Sleeping Bag,Durable 20°F sleeping bag made with 100% recycled materials,189.99,25,The North Face,Sleeping Gear,false
+SHOE-001,Salomon X Ultra 4 GTX Hiking Shoes,Waterproof lightweight shoes for day hikes and technical trails,179.99,18,Salomon,Footwear,false
+LAMP-001,Black Diamond Spot 400 Headlamp,Compact 400-lumen headlamp with multiple beam modes,64.99,30,Black Diamond,Accessories,false
+ROD-001,Arcteryx Beta LT Jacket,Complete ice fishing rod and tackle combo for frozen lakes,60.00,40,Misc,Gear,false

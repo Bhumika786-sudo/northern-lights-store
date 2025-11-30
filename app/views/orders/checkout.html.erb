@@ -1,0 +1,18 @@
+<h2>Checkout</h2>
+
+<% @items.each do |item| %>
+  <p><%= item[:product].name %> - Qty: <%= item[:qty] %> - $<%= item[:subtotal] %></p>
+<% end %>
+
+<p>GST: <%= @gst %></p>
+<p>PST: <%= @pst %></p>
+<p>HST: <%= @hst %></p>
+<p><strong>Total: <%= @total %></strong></p>
+
+<%= form_with url: place_order_path do %>
+  <%= hidden_field_tag :gst, @gst %>
+  <%= hidden_field_tag :pst, @pst %>
+  <%= hidden_field_tag :hst, @hst %>
+  <%= hidden_field_tag :total, @total %>
+  <%= submit_tag "Place Order" %>
+<% end %>

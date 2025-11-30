@@ -1,0 +1,54 @@
+<h1>Cart</h1>
+
+<% if flash[:notice] %>
+  <div class="alert alert-success">
+    <%= flash[:notice] %>
+  </div>
+<% end %>
+
+<% if flash[:alert] %>
+  <div class="alert alert-danger">
+    <%= flash[:alert] %>
+  </div>
+<% end %>
+
+<% if @cart_items.empty? %>
+  <p>Your cart is empty.</p>
+<% else %>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Product</th>
+        <th>Unit Price</th>
+        <th>Quantity</th>
+        <th>Subtotal</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @cart_items.each do |item| %>
+        <% product  = item[:product] %>
+        <% quantity = item[:quantity] %>
+        <% subtotal = item[:subtotal] %>
+        <tr>
+          <td><%= product.name %></td>
+          <td><%= number_to_currency(product.current_price) %></td>
+          <td><%= quantity %></td>
+          <td><%= number_to_currency(subtotal) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <p><strong>Subtotal:</strong> <%= number_to_currency(@subtotal) %></p>
+  <p><strong>GST:</strong> <%= number_to_currency(@gst) %></p>
+  <p><strong>PST:</strong> <%= number_to_currency(@pst) %></p>
+  <p><strong>HST:</strong> <%= number_to_currency(@hst) %></p>
+  <p><strong>Total:</strong> <%= number_to_currency(@total) %></p>
+
+  <%= link_to "Checkout", checkout_path, class: "btn btn-primary" %>
+  <%= link_to "Empty Cart",
+              clear_cart_path,
+              method: :delete,
+              data: { confirm: "Are you sure you want to empty your cart?" },
+              class: "btn btn-outline-danger ms-2" %>
+<% end %>

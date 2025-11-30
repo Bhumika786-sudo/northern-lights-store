@@ -1,0 +1,63 @@
+<h1>Checkout</h1>
+
+<% if @cart_items.blank? %>
+  <p>Your cart is empty.</p>
+  <p><%= link_to "Back to Products", products_path, class: "btn btn-primary" %></p>
+<% else %>
+  <h2>Order Summary</h2>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Product</th>
+        <th>Unit Price</th>
+        <th>Quantity</th>
+        <th>Line Total</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @cart_items.each do |product, quantity, line_total| %>
+        <tr>
+          <td><%= product.name %></td>
+          <td><%= number_to_currency(product.current_price) %></td>
+          <td><%= quantity %></td>
+          <td><%= number_to_currency(line_total) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <p><strong>Subtotal:</strong> <%= number_to_currency(@subtotal) %></p>
+  <p><strong>GST:</strong> <%= number_to_currency(@gst) %></p>
+  <p><strong>PST:</strong> <%= number_to_currency(@pst) %></p>
+  <p><strong>HST:</strong> <%= number_to_currency(@hst) %></p>
+  <p><strong>Total:</strong> <%= number_to_currency(@total) %></p>
+
+  <hr>
+
+  <h2>Shipping Information</h2>
+
+  <%= form_with url: checkout_path, method: :post, local: true do |f| %>
+    <div class="mb-3">
+      <%= label_tag :name, "Name" %>
+      <%= text_field_tag :name, nil, class: "form-control", required: true %>
+    </div>
+
+    <div class="mb-3">
+      <%= label_tag :address, "Address" %>
+      <%= text_field_tag :address, nil, class: "form-control", required: true %>
+    </div>
+
+    <div class="mb-3">
+      <%= label_tag :city, "City" %>
+      <%= text_field_tag :city, nil, class: "form-control", required: true %>
+    </div>
+
+    <div class="mb-3">
+      <%= label_tag :province, "Province" %>
+      <%= text_field_tag :province, nil, class: "form-control", required: true %>
+    </div>
+
+    <%= submit_tag "Place Order", class: "btn btn-success" %>
+  <% end %>
+<% end %>

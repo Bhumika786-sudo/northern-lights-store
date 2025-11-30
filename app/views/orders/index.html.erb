@@ -1,0 +1,16 @@
+<h2>My Orders</h2>
+
+<% if @orders.any? %>
+  <% @orders.each do |order| %>
+    <div style="margin-bottom: 20px;">
+      <strong>Order #<%= order.id %></strong><br>
+      Placed: <%= order.created_at.strftime("%Y-%m-%d %H:%M") %><br>
+      Status: <%= order.status %><br>
+      Total: <%= number_to_currency(order.total) %><br>
+      <%= link_to "View details", order_path(order) %>
+    </div>
+    <hr>
+  <% end %>
+<% else %>
+  <p>You have no orders yet.</p>
+<% end %>

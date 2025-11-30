@@ -1,0 +1,13 @@
+<h1>Search Results</h1>
+
+<%= form_with url: search_path, method: :get, local: true do %>
+  Keyword: <%= text_field_tag :keyword, params[:keyword] %>
+  Category: <%= select_tag :category, options_from_collection_for_select(Category.all, :id, :name, params[:category]), include_blank: true %>
+  <%= submit_tag "Search" %>
+<% end %>
+
+<hr>
+
+<%= render partial: "products/list", locals: { products: @products } %>
+
+<%= paginate @products %>
