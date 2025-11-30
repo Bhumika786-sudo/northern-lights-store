@@ -2,7 +2,7 @@ class CategoriesController < ApplicationController
   include BreadcrumbsHelper
 
   before_action :set_breadcrumbs
-  before_action :set_category, only: [:show]
+  before_action :set_category, only: [ :show ]
 
   def index
     @categories = Category.all

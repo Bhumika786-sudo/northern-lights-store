@@ -5,7 +5,7 @@ class Product < ApplicationRecord
   # --- IMAGE HANDLING METHOD ---
   # Resize image to fit your product cards
   def image_variant(width:, height:)
-    image.variant(resize_to_fill: [width, height])
+    image.variant(resize_to_fill: [ width, height ])
   end
 
   # --- PRICE FIX ---

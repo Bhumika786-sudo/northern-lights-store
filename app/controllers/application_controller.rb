@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   protected
 
   def configure_permitted_parameters
-    extra = [:address, :city, :province_id]
+    extra = [ :address, :city, :province_id ]
 
     devise_parameter_sanitizer.permit(:sign_up,        keys: extra)
     devise_parameter_sanitizer.permit(:account_update, keys: extra)

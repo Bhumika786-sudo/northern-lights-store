@@ -343,8 +343,6 @@ GEM
       logger
     ruby2_keywords (0.0.5)
     rubyzip (3.2.2)
-    sassc (2.4.0)
-      ffi (~> 1.9)
     securerandom (0.4.1)
     selenium-webdriver (4.38.0)
       base64 (~> 0.2)
@@ -428,8 +426,9 @@ DEPENDENCIES
   propshaft
   puma (>= 5.0)
   rails (~> 8.1.1)
+  rubocop (~> 1.65)
+  rubocop-rails
   rubocop-rails-omakase
-  sassc
   selenium-webdriver
   solid_cable
   solid_cache

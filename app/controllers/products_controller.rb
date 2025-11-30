@@ -2,7 +2,7 @@ class ProductsController < ApplicationController
   include BreadcrumbsHelper
 
   before_action :set_breadcrumbs
-  before_action :set_product, only: [:show, :edit, :update, :destroy]
+  before_action :set_product, only: [ :show, :edit, :update, :destroy ]
 
   # GET /products
   def index

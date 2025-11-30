@@ -2,7 +2,7 @@ class OrdersController < ApplicationController
   include BreadcrumbsHelper
 
   before_action :set_breadcrumbs
-  before_action :set_order, only: [:show]
+  before_action :set_order, only: [ :show ]
 
   def index
     @orders = current_user.orders
