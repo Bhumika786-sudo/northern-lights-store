@@ -1,7 +1,8 @@
 <%= form_with model: @product, local: true, html: { multipart: true } do |f| %>
+
   <% if @product.errors.any? %>
     <div class="alert alert-danger">
-      <h4><%= pluralize(@product.errors.count, "error") %> prevented this product from saving:</h4>
+      <h4><%= pluralize(@product.errors.count, "error") %> prevented this product from being saved:</h4>
       <ul>
         <% @product.errors.full_messages.each do |message| %>
           <li><%= message %></li>
@@ -52,15 +53,18 @@
     <%= f.label :on_sale, "On Sale?", class: "form-check-label" %>
   </div>
 
+  <!-- ========== IMAGE UPLOAD ========== -->
   <div class="mb-3">
     <%= f.label :image, "Product Image", class: "form-label" %>
-    <%= f.file_field :image, class: "form-control" %>
+    <%= f.file_field :image, direct_upload: true, class: "form-control" %>
 
     <% if @product.image.attached? %>
-      <p class="mt-2">Current image:</p>
-      <%= image_tag @product.image, class: "img-fluid rounded border" %>
+      <p class="mt-2 fw-bold">Current image:</p>
+      <%= image_tag @product.image.variant(resize_to_limit: [400, 400]),
+                    class: "img-fluid rounded border" %>
     <% end %>
   </div>
 
   <%= f.submit class: "btn btn-primary" %>
+
 <% end %>
