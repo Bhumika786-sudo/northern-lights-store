@@ -65,9 +65,9 @@ if Product.count < 100
       description: sample_descriptions.sample,
       current_price: rand(40..500),
       stock_quantity: rand(5..50),
-      brand: ["Arc'teryx", "Patagonia", "MSR", "Garmin", "The North Face"].sample,
+      brand: [ "Arc'teryx", "Patagonia", "MSR", "Garmin", "The North Face" ].sample,
       category: category,
-      on_sale: [true, false].sample
+      on_sale: [ true, false ].sample
     )
 
     next_number += 1

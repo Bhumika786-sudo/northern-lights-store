@@ -21,7 +21,7 @@ ActiveAdmin.register Product do
     column :on_sale
     column :image do |product|
       if product.image.attached?
-        image_tag product.image.variant(resize_to_limit: [50, 50])
+        image_tag product.image.variant(resize_to_limit: [ 50, 50 ])
       end
     end
     actions
@@ -40,7 +40,7 @@ ActiveAdmin.register Product do
       row :on_sale
       row :image do |product|
         if product.image.attached?
-          image_tag product.image.variant(resize_to_limit: [300, 300])
+          image_tag product.image.variant(resize_to_limit: [ 300, 300 ])
         end
       end
     end
@@ -62,7 +62,7 @@ ActiveAdmin.register Product do
               as: :file,
               hint: (
                 if f.object.image.attached?
-                  image_tag f.object.image.variant(resize_to_limit: [100, 100])
+                  image_tag f.object.image.variant(resize_to_limit: [ 100, 100 ])
                 else
                   content_tag(:span, "No image uploaded yet")
                 end

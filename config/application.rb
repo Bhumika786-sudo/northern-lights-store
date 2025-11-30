@@ -8,7 +8,7 @@ Bundler.require(*Rails.groups)
 
 module NorthernLights
   class Application < Rails::Application
-require 'devise'
+require "devise"
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 8.1
 

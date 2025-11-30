@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   resources :products
 
   # Categories (for breadcrumbs + admin)
-  resources :categories, only: [:index, :show]
+  resources :categories, only: [ :index, :show ]
 
   # Cart
   get  "cart",        to: "carts#show",  as: :cart
@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   post "cart/clear",       to: "carts#clear",  as: :clear_cart
 
   # Orders
-  resources :orders, only: [:index, :show]
+  resources :orders, only: [ :index, :show ]
 
   # Checkout (this fixes your error)
   get  "checkout", to: "checkout#new",    as: :checkout

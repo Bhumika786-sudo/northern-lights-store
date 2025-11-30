@@ -71,7 +71,7 @@ class CheckoutController < ApplicationController
       quantity   = qty.to_i
       line_total = product.current_price * quantity
 
-      @cart_items << [product, quantity, line_total]
+      @cart_items << [ product, quantity, line_total ]
       @subtotal   += line_total
     end
 
