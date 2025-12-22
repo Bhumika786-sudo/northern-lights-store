@@ -32,7 +32,7 @@ group :development, :test do
   gem "rubocop-rails-omakase", require: false
 
   # === REQUIRED FOR SECTION 5.4 (Rubocop) ===
-  gem "rubocop", "~> 1.65", require: false
+  gem "rubocop", "~> 1.82", require: false
   gem "rubocop-rails", require: false
 end
 
